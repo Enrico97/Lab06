@@ -4,6 +4,37 @@ import java.util.Date;
 
 public class Rilevamento {
 	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((data == null) ? 0 : data.hashCode());
+		result = prime * result + ((localita == null) ? 0 : localita.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Rilevamento other = (Rilevamento) obj;
+		if (data == null) {
+			if (other.data != null)
+				return false;
+		} else if (!data.equals(other.data))
+			return false;
+		if (localita == null) {
+			if (other.localita != null)
+				return false;
+		} else if (!localita.equals(other.localita))
+			return false;
+		return true;
+	}
+
 	private String localita;
 	private Date data;
 	private int umidita;
@@ -38,15 +69,15 @@ public class Rilevamento {
 		this.umidita = umidita;
 	}
 
-	// @Override
-	// public String toString() {
-	// return localita + " " + data + " " + umidita;
-	// }
+	 @Override
+	 public String toString() {
+	 return localita + " " + data + " " + umidita+"\n";
+	 }
 
-	@Override
-	public String toString() {
-		return String.valueOf(umidita);
-	}
+//	@Override
+//	public String toString() {
+//		return String.valueOf(umidita);
+//	}
 
 	
 
